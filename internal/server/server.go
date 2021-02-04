@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"os"
@@ -8,7 +8,7 @@ var (
 	port = os.Getenv("PORT")
 )
 
-func main() {
+func Run() {
 	// http.HandleFunc("/hello", hello)
 	// http.HandleFunc("/headers", headers)
 

@@ -8,5 +8,7 @@ WORKDIR $APP_DIR
 COPY . $APP_DIR
 COPY ./tools/development/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
+RUN mkdir -p /run/nginx
+
 ENTRYPOINT ["/opt/service/tools/development/run"]
 
