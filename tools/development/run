@@ -2,4 +2,4 @@
 
 nginx
 
-sleep infinity
+go run cmd/main.go
