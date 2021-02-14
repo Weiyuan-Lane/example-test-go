@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/weiyuan-lane/example-test-go/internal/server/utils/queryparams"
+	"github.com/Weiyuan-Lane/example-test-go/internal/server/utils/queryparams"
 )
 
 // Adapted from https://gobyexample.com/http-servers
@@ -12,7 +12,7 @@ import (
 func Run() {
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
-	http.HandleFunc("/test-page-params", testPageParams)
+	http.HandleFunc("/page-params", pageParams)
 
 	http.ListenAndServe(":8080", nil)
 }
@@ -30,10 +30,13 @@ func headers(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func testPageParams(w http.ResponseWriter, req *http.Request) {
+func pageParams(w http.ResponseWriter, req *http.Request) {
 	params := req.URL.Query()
 	queryParams := queryparams.New(params)
+	RenderPageParamsResponse(w, queryParams)
+}
 
+func RenderPageParamsResponse(w http.ResponseWriter, queryParams queryparams.PageParams) {
 	page, _ := queryParams.Page()
 	perPage, _ := queryParams.PerPage()
 
