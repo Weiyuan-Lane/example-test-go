@@ -24,6 +24,6 @@ coverage:
 	@go tool cover -func=$(TMP_COVER_FILE)
 	@go tool cover -o $(TMP_COVER_HTML_FILE) -html=$(TMP_COVER_FILE)
 
-	@echo -e "\nFor a full visual breakdown, see $$(printf "\033[32mhttp://localhost:8082\033[0m") for more details"
+	@echo -e "\nFor a full visual breakdown, see $$(printf "\033[32mhttp://localhost:8081\033[0m") for more details"
 
 	@echo -e "\n"
